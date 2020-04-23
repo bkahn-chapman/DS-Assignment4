@@ -6,6 +6,7 @@ class Window
 {
   int timeIdle;
   int remainderTime;
+
   Window(int input);
   void increment();
 
@@ -30,17 +31,17 @@ void Window::setRemainderTime(int input)
   remainderTime = input;
 }
 
-int getTimeIdle()
+int Window::getTimeIdle()
 {
   return timeIdle;
 }
 
-int getRemainderTime()
+int Window::getRemainderTime()
 {
   return remainderTime;
 }
 
-void increment()
+void Window::increment() //decreases remainder time, or increases idle time if a student is present
 {
   if(remainderTime != 0)
   {
