@@ -5,7 +5,7 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-  GenQueue() q = new GenQueue(10);
+  GenQueue<char> q;
 
   q.insert('r');
   q.insert('e');
