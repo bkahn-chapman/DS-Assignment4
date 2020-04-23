@@ -3,7 +3,7 @@
 
 using namespace std;
 
-
+template <class T>
 class DoublyLinkedList
 
 {
@@ -16,33 +16,35 @@ class DoublyLinkedList
     DoublyLinkedList();
     ~DoublyLinkedList();
 
-    void insertFront(int data); //adds data to front of list, dont need for this assignment, can remove
-    void insertBack(int data);
-    int removeFront(); //removes front value
-    int removeBack(); //dont need for this assignment, can remove
-    int search(int val); //can return value or position of node depending on implementation
+    void insertFront(T data); //adds data to front of list, dont need for this assignment, can remove
+    void insertBack(T data);
+    T removeFront(); //removes front value
+    T removeBack(); //dont need for this assignment, can remove
+    T search(T val); //can return value or position of node depending on implementation
     // T removeAtPos(int pos); //removes value at given position, not necessary for assignment
     //could implement an insert at position, similar to removeAtPos, also not necessary
 
     unsigned int getSize();
-    int getFront();
+    T getFront();
     bool isEmpty();
     void printList();
 };
 
-DoublyLinkedList::DoublyLinkedList()
+template <class T>
+DoublyLinkedList<T>::DoublyLinkedList()
 {
   size = 0;
   front = NULL;
   back = NULL;
 }
 
-DoublyLinkedList::~DoublyLinkedList()
+template <class T>
+DoublyLinkedList<T>::~DoublyLinkedList()
 {
   if(!isEmpty())
   {
-    ListNode *curr = front;
-    ListNode *temp;
+    ListNode<T> *curr = front;
+    ListNode<T> *temp;
   }
   while(curr != 0) //deletes all nodes remaining in the list before deletion
   {
@@ -52,17 +54,20 @@ DoublyLinkedList::~DoublyLinkedList()
   }
 }
 
-unsigned int DoublyLinkedList::getSize()
+template <class T>
+unsigned int DoublyLinkedList<T>::getSize()
 {
   return size;
 }
 
-bool DoublyLinkedList::isEmpty()
+template <class T>
+bool DoublyLinkedList<T>::isEmpty()
 {
   return (size == 0);
 }
 
-void DoublyLinkedList::printList()
+template <class T>
+void DoublyLinkedList<T>::printList()
 {
   ListNode *curr = front;
   while(curr != NULL)
@@ -72,9 +77,10 @@ void DoublyLinkedList::printList()
   }
 }
 
-void DoublyLinkedList::insertFront(int data)
+template <class T>
+void DoublyLinkedList<T>::insertFront(T dataInput)
 {
-  ListNode *node = new ListNode(data);
+  ListNode *node = new ListNode(dataInput);
   //Check if empty
   if(isEmpty())
   {
@@ -90,9 +96,10 @@ void DoublyLinkedList::insertFront(int data)
   size++;
 }
 
-void DoublyLinkedList::insertBack(int data)
+template <class T>
+void DoublyLinkedList::insertBack(T dataInput)
 {
-  ListNode *node = new ListNode(data);
+  ListNode *node = new ListNode(dataInput);
   //Check if empty
   if(isEmpty())
   {
@@ -108,27 +115,28 @@ void DoublyLinkedList::insertBack(int data)
   size++;
 }
 
-int DoublyLinkedList::removeFront()
+template <class T>
+T DoublyLinkedList<T>::removeFront()
 {
-  ListNode *tempPointer = front;
-  //not sure if we need this cuz i cant really figure out what it does
-  if(front->next == NULL)
-  {
-    back = NULL;
-  }
-  else
-  {
-    front->next->prev = NULL;
-  }
+  ListNode<T> *tempPointer = front;
+  // if(front->next == NULL)     not sure if we need this cuz i cant really figure out what it does
+  // {
+  //   back = NULL;
+  // }
+  // else
+  // {
+  //   front->next->prev = NULL;
+  // }
   front = front->next;
   tempPointer->next = NULL;
-  int tempData = tempPointer->data;
+  T tempData = tempPointer->data;
   delete tempPointer;
   size--;
   return tempData;
 }
 
-int DoublyLinkedList::search(int val)
+template <class T>
+int DoublyLinkedList<T>::search(T val)
 {
   int position = -1; //negative positions will output a ValueNotFound
   ListNode *curr = front;
@@ -147,18 +155,20 @@ int DoublyLinkedList::search(int val)
   }
   if(curr == NULL)
     position = -1; //we did not find the value
-  return position;
+  return position
 }
 
-int DoublyLinkedList::getFront()
+template <class T>
+T DoublyLinkedList<T>::getFront()
 {
   return front->data;
 }
 
-int DoublyLinkedList::removeBack()
+template <class T>
+T DoublyLinkedList<T>::removeBack()
 {
-  int tempData = back->data;
-  ListNode *backTemp = back;
+  T tempData = back->data;
+  ListNode<T> *backTemp = back;
   back = back->prev;
   backTemp->prev = NULL;
   delete backTemp;
