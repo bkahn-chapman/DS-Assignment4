@@ -119,17 +119,6 @@ void DoublyLinkedList::insertBack(T dataInput)
 int DoublyLinkedList::removeFront()
 {
   ListNode *tempPointer = front;
-<<<<<<< HEAD
-  //not sure if we need this cuz i cant really figure out what it does
-  if(front->next == NULL)
-  {
-    back = NULL;
-  }
-  else
-  {
-    front->next->prev = NULL;
-  }
-=======
   // if(front->next == NULL)     not sure if we need this cuz i cant really figure out what it does
   // {
   //   back = NULL;
@@ -138,7 +127,6 @@ int DoublyLinkedList::removeFront()
   // {
   //   front->next->prev = NULL;
   // }
->>>>>>> bb07146742330c0a7cdb7c3ed106b1019f5c1670
   front = front->next;
   tempPointer->next = NULL;
   int tempData = tempPointer->data;
