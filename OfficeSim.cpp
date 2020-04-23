@@ -49,4 +49,5 @@ void OfficeSim::start()
   {
     cout << e.what() << endl;
   }
+  // simulate(); implement a simulate method here
 }
