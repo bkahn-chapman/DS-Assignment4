@@ -1,13 +1,13 @@
 #include <iostream>
+#include "DoublyLinkedList.h"
 using namespace std;
 
-template <class T>
 class GenQueue
 {
   public:
     GenQueue(); //default constructor
-    GenQueue(int maxSize); //overloaded constructor
     ~GenQueue(); //destructor
+    GenQueue(int maxSize); //overloaded constructor
 
     //core functions
     void insert(char d); //enqueue
@@ -28,8 +28,7 @@ class GenQueue
     char *myQueue; //array
 };
 
-template <class T>
-GenQueue<T>::GenQueue() //default constructor
+GenQueue::GenQueue() //default constructor
 {
   myQueue = new char [10];
   mSize = 10;
@@ -38,8 +37,7 @@ GenQueue<T>::GenQueue() //default constructor
   numElements = 0;
 }
 
-template <class T>
-GenQueue<T>::GenQueue(int maxSize) //overloaded constructor
+GenQueue::GenQueue(int maxSize) //overloaded constructor
 {
   myQueue = new char [maxSize];
   mSize = maxSize;
@@ -48,23 +46,21 @@ GenQueue<T>::GenQueue(int maxSize) //overloaded constructor
   numElements = 0;
 }
 
-template <class T>
-GenQueue<T>::~GenQueue()
+GenQueue::~GenQueue()
 {
+
   cout << "The queue has been deleted." << endl;
   delete myQueue;
 }
 
-template <class T>
-void GenQueue<T>::insert(char d)
+void GenQueue::insert(char d)
 {
   //add error checking
   myQueue[++rear] = d;
   ++numElements;
 }
 
-template <class T>
-char GenQueue<T>::remove()
+char GenQueue::remove()
 {
   //add error checking
   char c = '\0'; //null character
@@ -74,26 +70,22 @@ char GenQueue<T>::remove()
   return c;
 }
 
-template <class T>
-char GenQueue<T>::peek()
+char GenQueue::peek()
 {
   return myQueue[front];
 }
 
-template <class T>
-bool GenQueue<T>::isFull()
+bool GenQueue::isFull()
 {
   return (numElements == mSize);
 }
 
-template <class T>
-bool GenQueue<T>::isEmpty()
+bool GenQueue::isEmpty()
 {
   return (numElements == 0);
 }
 
-template <class T>
-int GenQueue<T>::getSize()
+int GenQueue::getSize()
 {
   return numElements;
 }
