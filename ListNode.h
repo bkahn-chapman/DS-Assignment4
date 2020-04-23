@@ -1,36 +1,38 @@
 #include <iostream>
+
 using namespace std;
 
-///header (.h) file for my doubly linked list
+template <class T>
 class ListNode
 {
   public:
-    int data;
+    T data;
     ListNode *next;
     ListNode *prev;
 
-    ListNode(); // default constructor
-    ListNode(int d); //overloaded constructor
+    ListNode(); //default
+    ListNode(T); //overload
     ~ListNode(); //destructor
 };
 
-///ListNode implementation file (.cpp)
-ListNode::ListNode()
+template <class T>
+ListNode<T>::ListNode()
 {
   data = 0;
   next = NULL;
   prev = NULL;
 }
 
-ListNode::ListNode(int d)
+template <class T>
+ListNode<T>::ListNode(T dataInput)
 {
-  data = d;
+  data = dataInput;
   next = NULL;
   prev = NULL;
 }
 
-ListNode::~ListNode()
+template <class T>
+ListNode<T>::~ListNode()
 {
-  //I'll let you do some research
-  //AKA build some character
+  //delete thingy
 }
