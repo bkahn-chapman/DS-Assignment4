@@ -1,5 +1,4 @@
 #include "OfficeSim.h"
-#include "GenQueue.h"
 int main(int argc, char **argv)
 {
   OfficeSim os;

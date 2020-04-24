@@ -1,4 +1,5 @@
 #include "FileNotFoundException.h"
+#include "GenQueue.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -13,4 +14,5 @@ class OfficeSim
     // void stats();
     // DoublyLinkedList<int> *students;
     string fileName;
+    GenQueue<int> fileValues;
 };
