@@ -45,12 +45,12 @@ DoublyLinkedList<T>::~DoublyLinkedList()
   {
     ListNode<T> *curr = front;
     ListNode<T> *temp;
-  }
-  while(curr != 0) //deletes all nodes remaining in the list before deletion
-  {
-    temp = curr;
-    curr = curr->next;
-    delete temp;
+    while(curr != 0) //deletes all nodes remaining in the list before deletion
+    {
+      temp = curr;
+      curr = curr->next;
+      delete temp;
+    }
   }
 }
 

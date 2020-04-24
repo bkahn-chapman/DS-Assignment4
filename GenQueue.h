@@ -11,10 +11,10 @@ class GenQueue
 
     //core functions
     void insert(char d); //enqueue
-    char remove(); //dequeue
+    T remove(); //dequeue
 
     //aux functions
-    char peek();
+    T peek();
     bool isFull();
     bool isEmpty();
     int getSize();
@@ -64,7 +64,7 @@ void GenQueue<T>::insert(char d)
 }
 
 template <class T>
-char GenQueue<T>::remove()
+T GenQueue<T>::remove()
 {
   //add error checking
   char c = '\0'; //null character
@@ -75,7 +75,7 @@ char GenQueue<T>::remove()
 }
 
 template <class T>
-char GenQueue<T>::peek()
+T GenQueue<T>::peek()
 {
   return myQueue[front];
 }
