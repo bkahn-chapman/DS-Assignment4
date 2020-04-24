@@ -26,7 +26,7 @@ class GenQueue
     int mSize;
     int numElements;
 
-    DoublyLinkedList<T> *myList; //array
+    DoublyLinkedList<T> *myList;
 };
 
 template <class T>
@@ -61,20 +61,26 @@ GenQueue<T>::~GenQueue()
 template <class T>
 void GenQueue<T>::insert(T data)
 {
+  myList.insertBack(data);
+  /*
   //add error checking
   myList[++rear] = data;
   ++numElements;
+  */
 }
 
 template <class T>
 T GenQueue<T>::remove()
 {
+  myList.removeFront();
+  /*
   //add error checking
   char c = '\0'; //null character
   c = myList[front];
   ++front;
   --numElements;
   return c;
+  */
 }
 
 /*
@@ -96,7 +102,10 @@ bool GenQueue<T>::isFull()
 template <class T>
 bool GenQueue<T>::isEmpty()
 {
+  return(myList.isEmpty());
+  /*
   return (numElements == 0);
+  */
 }
 
 /*
