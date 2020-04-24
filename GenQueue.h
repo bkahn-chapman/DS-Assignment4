@@ -61,7 +61,7 @@ GenQueue<T>::~GenQueue()
 template <class T>
 void GenQueue<T>::insert(T data)
 {
-  myList.insertBack(data);
+  myList->insertBack(data);
   /*
   //add error checking
   myList[++rear] = data;
@@ -72,7 +72,7 @@ void GenQueue<T>::insert(T data)
 template <class T>
 T GenQueue<T>::remove()
 {
-  myList.removeFront();
+  myList->removeFront();
   /*
   //add error checking
   char c = '\0'; //null character
@@ -102,7 +102,7 @@ bool GenQueue<T>::isFull()
 template <class T>
 bool GenQueue<T>::isEmpty()
 {
-  return(myList.isEmpty());
+  return(myList->isEmpty());
   /*
   return (numElements == 0);
   */
