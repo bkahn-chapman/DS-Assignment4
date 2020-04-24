@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "ListNode.h"
 
 using namespace std;
@@ -7,11 +8,6 @@ template <class T>
 class DoublyLinkedList
 
 {
-  private:
-    ListNode *front;
-    unsigned int size;
-    ListNode *back;
-
   public:
     DoublyLinkedList();
     ~DoublyLinkedList();
@@ -28,6 +24,10 @@ class DoublyLinkedList
     T getFront();
     bool isEmpty();
     void printList();
+
+    ListNode<T> *front;
+    unsigned int size;
+    ListNode<T> *back;
 };
 
 template <class T>
@@ -69,7 +69,7 @@ bool DoublyLinkedList<T>::isEmpty()
 template <class T>
 void DoublyLinkedList<T>::printList()
 {
-  ListNode *curr = front;
+  ListNode<T> *curr = front;
   while(curr != NULL)
   {
     cout << curr->data << endl;
@@ -80,7 +80,7 @@ void DoublyLinkedList<T>::printList()
 template <class T>
 void DoublyLinkedList<T>::insertFront(T dataInput)
 {
-  ListNode *node = new ListNode(dataInput);
+  ListNode<T> *node = new ListNode<T>(dataInput);
   //Check if empty
   if(isEmpty())
   {
@@ -97,9 +97,9 @@ void DoublyLinkedList<T>::insertFront(T dataInput)
 }
 
 template <class T>
-void DoublyLinkedList::insertBack(T dataInput)
+void DoublyLinkedList<T>::insertBack(T dataInput)
 {
-  ListNode *node = new ListNode(dataInput);
+  ListNode<T> *node = new ListNode<T>(dataInput);
   //Check if empty
   if(isEmpty())
   {
@@ -137,10 +137,10 @@ T DoublyLinkedList<T>::removeFront()
 }
 
 template <class T>
-int DoublyLinkedList<T>::search(T val)
+T DoublyLinkedList<T>::search(T val)
 {
   int position = -1; //negative positions will output a ValueNotFound
-  ListNode *curr = front;
+  ListNode<T> *curr = front;
   while(curr != NULL)
   {
     //iterate and attempt to find value
@@ -156,7 +156,7 @@ int DoublyLinkedList<T>::search(T val)
   }
   if(curr == NULL)
     position = -1; //we did not find the value
-  return position
+  return position;
 }
 
 template <class T>

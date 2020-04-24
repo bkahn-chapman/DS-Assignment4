@@ -62,7 +62,7 @@ template <class T>
 void GenQueue<T>::insert(T data)
 {
   //add error checking
-  myList[++rear] = d;
+  myList[++rear] = data;
   ++numElements;
 }
 
