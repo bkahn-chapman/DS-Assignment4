@@ -67,11 +67,11 @@ void OfficeSim::simulate()
         Student(fileValues.removeFront()) s; //new student with window time set
         line.insert(s);
       }
-      nextTime = fileValues.removeFront();
+      nextTime = fileValues.removeFront(); //gets the next time to check
     }
     for(int i = 0; i < windows.size(); i++) //all windows
     {
-      if(w.getRemainderTime == 0) //if a window is empty
+      if(w.getRemainderTime() == 0) //if a window is empty
       {
         emptyWindows = emptyWindows + 1;
       }
@@ -80,5 +80,24 @@ void OfficeSim::simulate()
     {
       exitCheck = true;
     }
+    else
+    {
+      for(int i = 0; i < windows.size(); i++) //all windows
+      {
+        if(w.getRemainderTime() != 0) //if a window is not empty
+        {
+          w.setRemainderTime(w.getRemainderTime()-1);
+        }
+        else if(w.getRemainderTime() == 0 && !line.isEmpty()) //if a window is empty, and the line is not empty
+        {
+          w.setRemainderTime(line.removeFront());
+        }
+        else //if a window is empty and there is no one in line
+        {
+          w.setTimeIdle(w.getTimeIdle()+1);
+        }
+      }
+    }
+    time = time + 1;
   }
 }
