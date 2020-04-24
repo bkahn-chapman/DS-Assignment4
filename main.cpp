@@ -1,6 +1,8 @@
 #include "OfficeSim.h"
+#include "GenQueue.h"
 int main(int argc, char **argv)
 {
+  GenQueue *test = new GenQueue;
   OfficeSim os;
   string name;
   if(argv[1]!=NULL)

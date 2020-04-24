@@ -1,4 +1,5 @@
 #include <iostream>
+#include "DoublyLinkedList.h"
 using namespace std;
 
 template <class T>
@@ -10,7 +11,7 @@ class GenQueue
     ~GenQueue(); //destructor
 
     //core functions
-    T insert(T data); //enqueue
+    void insert(T data); //enqueue
     T remove(); //dequeue
 
     //aux functions

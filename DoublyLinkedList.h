@@ -119,7 +119,8 @@ template <class T>
 T DoublyLinkedList<T>::removeFront()
 {
   ListNode<T> *tempPointer = front;
-  if(front->next == NULL)     not sure if we need this cuz i cant really figure out what it does
+  //not sure if we need this cuz i cant really figure out what it does
+  if(front->next == NULL)
   {
     back = NULL;
   }
