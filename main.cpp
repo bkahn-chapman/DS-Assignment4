@@ -2,13 +2,6 @@
 #include "GenQueue.h"
 int main(int argc, char **argv)
 {
-
-  GenQueue<int> test;
-  if(test.isEmpty())
-  {
-    cout << "yee" << endl;
-  }
-
   OfficeSim os;
   string name;
   if(argv[1]!=NULL)

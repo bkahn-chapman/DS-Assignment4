@@ -13,28 +13,3 @@ class Student
     void setTimeInQueue(int input);
     int getTimeInQueue();
 };
-
-Student::Student(int input)
-{
-  timeAtWindow = input;
-}
-
-void Student::setWindowTime(int input)
-{
-  timeAtWindow = input;
-}
-
-int Student::getWindowTime()
-{
-  return timeAtWindow;
-}
-
-void Student::setTimeInQueue(int input)
-{
-  setTimeInQueue = input;
-}
-
-int Student::getTimeInQueue()
-{
-  return setTimeInQueue;
-}
