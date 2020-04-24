@@ -6,7 +6,7 @@ class GenQueue
 {
   public:
     GenQueue(); //default constructor
-    GenQueue(int maxSize); //overloaded constructor
+    // GenQueue(int maxSize); //overloaded constructor
     ~GenQueue(); //destructor
 
     //core functions
@@ -25,19 +25,20 @@ class GenQueue
     int mSize;
     int numElements;
 
-    char *myQueue; //array
+    DoublyLinkedList<T> *myList; //array
 };
 
 template <class T>
 GenQueue<T>::GenQueue() //default constructor
 {
-  myQueue = new char [10];
+  myList = new DoublyLinkedList<T>;
   mSize = 10;
   front = 0;
   rear = -1;
   numElements = 0;
 }
 
+/*
 template <class T>
 GenQueue<T>::GenQueue(int maxSize) //overloaded constructor
 {
@@ -47,19 +48,20 @@ GenQueue<T>::GenQueue(int maxSize) //overloaded constructor
   rear = -1;
   numElements = 0;
 }
+*/
 
 template <class T>
 GenQueue<T>::~GenQueue()
 {
-  cout << "The queue has been deleted." << endl;
-  delete myQueue;
+  cout << "The list has been deleted." << endl;
+  delete myList;
 }
 
 template <class T>
-void GenQueue<T>::insert(char d)
+void GenQueue<T>::insert(T data)
 {
   //add error checking
-  myQueue[++rear] = d;
+  myList[++rear] = d;
   ++numElements;
 }
 
@@ -68,7 +70,7 @@ T GenQueue<T>::remove()
 {
   //add error checking
   char c = '\0'; //null character
-  c = myQueue[front];
+  c = myList[front];
   ++front;
   --numElements;
   return c;
