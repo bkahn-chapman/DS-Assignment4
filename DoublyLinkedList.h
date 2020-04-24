@@ -21,7 +21,7 @@ class DoublyLinkedList
     T removeFront(); //removes front value
     T removeBack(); //dont need for this assignment, can remove
     T search(T val); //can return value or position of node depending on implementation
-    // T removeAtPos(int pos); //removes value at given position, not necessary for assignment
+    T removeAtPos(int pos); //removes value at given position, not necessary for assignment
     //could implement an insert at position, similar to removeAtPos, also not necessary
 
     unsigned int getSize();
@@ -119,14 +119,14 @@ template <class T>
 T DoublyLinkedList<T>::removeFront()
 {
   ListNode<T> *tempPointer = front;
-  // if(front->next == NULL)     not sure if we need this cuz i cant really figure out what it does
-  // {
-  //   back = NULL;
-  // }
-  // else
-  // {
-  //   front->next->prev = NULL;
-  // }
+  if(front->next == NULL)     not sure if we need this cuz i cant really figure out what it does
+  {
+    back = NULL;
+  }
+  else
+  {
+    front->next->prev = NULL;
+  }
   front = front->next;
   tempPointer->next = NULL;
   T tempData = tempPointer->data;

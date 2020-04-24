@@ -10,14 +10,14 @@ class GenQueue
     ~GenQueue(); //destructor
 
     //core functions
-    void insert(char d); //enqueue
+    T insert(T data); //enqueue
     T remove(); //dequeue
 
     //aux functions
-    T peek();
-    bool isFull();
+    // T peek();
+    // bool isFull();
     bool isEmpty();
-    int getSize();
+    // int getSize();
 
     //vars
     int front; //aka head
@@ -74,17 +74,21 @@ T GenQueue<T>::remove()
   return c;
 }
 
+/*
 template <class T>
 T GenQueue<T>::peek()
 {
   return myQueue[front];
 }
+*/
 
+/*
 template <class T>
 bool GenQueue<T>::isFull()
 {
   return (numElements == mSize);
 }
+*/
 
 template <class T>
 bool GenQueue<T>::isEmpty()
@@ -92,8 +96,10 @@ bool GenQueue<T>::isEmpty()
   return (numElements == 0);
 }
 
+/*
 template <class T>
 int GenQueue<T>::getSize()
 {
   return numElements;
 }
+*/
