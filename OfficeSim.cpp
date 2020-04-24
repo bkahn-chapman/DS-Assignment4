@@ -52,11 +52,21 @@ void OfficeSim::simulate()
   //make a list of the number of windows (can you do this CAM)
   for(int i = 0; i < numWindows; ++i)
   {
-    windows.insert(i);
+    Window(0) w; //time left of 0 to start
+    windows.insert(w);
   }
 
   while(!exitCheck)
   {
     //do all the checks here
+    if(time = nextTime)
+    {
+      numStudents = fileValues.removeFront();
+    }
+    for(int i = 0; i < numStudents; ++i)
+    {
+      Student(fileValues.removeFront()) s; //new student with window time set
+      line.insert(s);
+    }
   }
 }

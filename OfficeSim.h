@@ -19,8 +19,9 @@ class OfficeSim
     string fileName;
     GenQueue<int> fileValues;
     GenQueue<Window> windows;
-    GenQueue<Student> queue;
+    GenQueue<Student> line;
     int numWindows = 0;
+    int numStudents = 0;
     int nextTime = 0;
     bool exitCheck = false;
 };
