@@ -102,7 +102,7 @@ bool GenQueue<T>::isFull()
 template <class T>
 bool GenQueue<T>::isEmpty()
 {
-  return(myList.isEmpty());
+  return(myList->isEmpty());
   /*
   return (numElements == 0);
   */
