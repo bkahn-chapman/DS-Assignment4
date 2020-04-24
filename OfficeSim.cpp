@@ -62,11 +62,23 @@ void OfficeSim::simulate()
     if(time = nextTime)
     {
       numStudents = fileValues.removeFront();
+      for(int i = 0; i < numStudents; ++i)
+      {
+        Student(fileValues.removeFront()) s; //new student with window time set
+        line.insert(s);
+      }
+      nextTime = fileValues.removeFront();
     }
-    for(int i = 0; i < numStudents; ++i)
+    for(int i = 0; i < windows.size(); i++) //all windows
     {
-      Student(fileValues.removeFront()) s; //new student with window time set
-      line.insert(s);
+      if(w.getRemainderTime == 0) //if a window is empty
+      {
+        emptyWindows = emptyWindows + 1;
+      }
+    }
+    if(emptyWindows == windows.size() && fileValues.isEmpty() && line.isEmpty()) //all windows empty, no students left
+    {
+      exitCheck = true;
     }
   }
 }

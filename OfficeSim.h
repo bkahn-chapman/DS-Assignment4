@@ -24,4 +24,6 @@ class OfficeSim
     int numStudents = 0;
     int nextTime = 0;
     bool exitCheck = false;
+    bool windowsCheck = false;
+    int emptyWindows = 0;
 };
