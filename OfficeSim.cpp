@@ -26,18 +26,20 @@ void OfficeSim::start()
     inFS >> noskipws >> c;
     if(c == '\n')
     {
-      cout << "test" << endl;
-      nextInt = stoi(nextStr);
-      fileValues.insert(nextInt);
+      if(nextStr != "")
+      {
+        nextInt = stoi(nextStr);
+        fileValues.insert(nextInt);
+      }
       nextStr = "";
       nextInt = 0;
     }
     else if(isdigit(c))
     {
       nextStr += c;
-      cout << nextStr << endl;
     }
   }
+  cout << fileValues.size() << endl;
   for(int i = 0; i < fileValues.size(); i++)
   {
     cout << fileValues.remove() << endl;
