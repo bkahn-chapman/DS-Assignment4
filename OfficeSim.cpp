@@ -59,7 +59,7 @@ void OfficeSim::simulate()
   while(!exitCheck)
   {
     //do all the checks here
-    if(time = nextTime)
+    if(mTime = nextTime)
     {
       numStudents = fileValues.removeFront();
       for(int i = 0; i < numStudents; ++i)
@@ -82,22 +82,75 @@ void OfficeSim::simulate()
     }
     else
     {
-      for(int i = 0; i < windows.size(); i++) //all windows
+      for(int i = 0; i < windows.size(); ++i) //all windows
       {
         if(w.getRemainderTime() != 0) //if a window is not empty
         {
-          w.setRemainderTime(w.getRemainderTime()-1);
+          w.setRemainderTime(w.getRemainderTime()-1); //lowers the amount of time until the window is empty again
         }
         else if(w.getRemainderTime() == 0 && !line.isEmpty()) //if a window is empty, and the line is not empty
         {
-          w.setRemainderTime(line.removeFront());
+          totalStudents = totalStudents + 1; //counts the student helped
+          for(int i = 0; i < 1; ++i)
+          {
+            Student s = line.peek(); //gets the student at the front
+            waitTimes.insert(s.getTimeIdle()); //adds their wait time in line to the list
+          }
+          w.setRemainderTime(line.removeFront()); //puts the next student in line at the window
         }
         else //if a window is empty and there is no one in line
         {
-          w.setTimeIdle(w.getTimeIdle()+1);
+          w.setTimeIdle(w.getTimeIdle()+1); //makes the window's idle time increase by one
         }
       }
+      for(int i = 0; i < line.size(); ++i) //all students still in line
+      {
+        s.setTimeInQueue(s.getTimeInQueue() + 1); //up their wait times
+      }
     }
-    time = time + 1;
+    mTime = mTime + 1;
   }
+}
+
+void OfficeSim::outputResults()
+{
+  //MAKE THE MEDIAN WAIT TIME LOOP here
+
+  for(int i = 0; i < waitTimes.size(); ++i)
+  {
+    studentTemp = waitTimes.removeFront();
+    if(studentTemp > studentLong) //long
+    {
+      studentLong = studentTemp;
+    }
+    if(studentTemp > 10) //over 10
+    {
+      studentTen = studentTen + 1;
+    }
+    studentMean = studentMean + studentTemp; //mean
+  }
+  studentMean = studentMean / totalStudents;
+  cout << "1. The mean student wait time was: " << studentMean << " minutes." << endl;
+  cout << "2. The median student wait time was: " << studentMedian << " minutes." << endl;
+  cout << "3. The longest student wait time was: " << studentLong << " minutes." << endl;
+  cout << "4. There were " << studentTen << " students waiting in line over 10 minutes." << endl;
+
+  for(int i = 0; i < windows.size(); ++i)
+  {
+    windowTemp = waitTimes.removeFront();
+    if(windowTemp.getTimeIdle() > windowLong) //long
+    {
+      windowLong = windowTemp;
+    }
+    if(windowTemp.getTimeIdle() > 5) //over 5
+    {
+      windowFive = windowFive + 1;
+    }
+    windowMean = windowMean + windowTemp; //mean
+  }
+  windowMean = windowMean / numWindows;
+
+  cout << "5. The mean window idle time was: " << windowMean << " minutes." << endl;
+  cout << "6. The longest window idle time was: " << windowLong << " minutes." << endl;
+  cout << "7. There were " << windowFive << " windows idle for over 5 minutes." << endl;
 }

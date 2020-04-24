@@ -76,13 +76,11 @@ T GenQueue<T>::removeFront()
   return myList->removeFront();
 }
 
-/*
 template <class T>
 T GenQueue<T>::peek()
 {
-  return myQueue[front];
+  return myList->getFront();
 }
-*/
 
 /*
 template <class T>
