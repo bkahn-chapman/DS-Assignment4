@@ -18,6 +18,7 @@ class GenQueue
     // T peek();
     // bool isFull();
     bool isEmpty();
+    int size();
     // int getSize();
 
     //vars
@@ -115,3 +116,9 @@ int GenQueue<T>::getSize()
   return numElements;
 }
 */
+
+template <class T>
+int GenQueue<T>::size()
+{
+  return(myList->getSize());
+}
