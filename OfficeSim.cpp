@@ -40,8 +40,9 @@ void OfficeSim::start()
     }
   }
   cout << fileValues.size() << endl;
-  for(int i = 0; i < fileValues.size(); i++)
+  int thing = fileValues.size();
+  for(int i = 0; i < thing; i++)
   {
-    cout << fileValues.remove() << endl;
+    cout << fileValues.removeFront() << endl;
   }
 }

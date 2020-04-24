@@ -12,7 +12,7 @@ class GenQueue
 
     //core functions
     void insert(T data); //enqueue
-    T remove(); //dequeue
+    T removeFront(); //dequeue
 
     //aux functions
     // T peek();
@@ -71,17 +71,9 @@ void GenQueue<T>::insert(T data)
 }
 
 template <class T>
-T GenQueue<T>::remove()
+T GenQueue<T>::removeFront()
 {
-  myList->removeFront();
-  /*
-  //add error checking
-  char c = '\0'; //null character
-  c = myList[front];
-  ++front;
-  --numElements;
-  return c;
-  */
+  return myList->removeFront();
 }
 
 /*
