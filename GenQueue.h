@@ -15,7 +15,7 @@ class GenQueue
     T removeFront(); //dequeue
 
     //aux functions
-    // T peek();
+    T peek();
     // bool isFull();
     bool isEmpty();
     int size();

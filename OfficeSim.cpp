@@ -114,7 +114,38 @@ void OfficeSim::simulate()
 
 void OfficeSim::outputResults()
 {
-  //MAKE THE MEDIAN WAIT TIME LOOP here
+  int count = 0;
+  ListNode<int> *curr = waitTimes.front;
+  while(curr!=NULL)
+  {
+    curr = curr->next;
+    count++;
+  }
+  curr = waitTimes.front;
+  int medianArray[waitTimes];
+
+  for(int i = 0; i < count; i++)
+  {
+    medianArray[i] = curr->data;
+    curr = curr->next;
+  }
+  int f = sizeof(medianArray)/sizeof(medianArray[0]);
+  sort(medianArray, medianArray+f);
+
+  if(sizeof(medianArray)%2 != 0)
+  {
+    int middle;
+    middle = count/2 + 1;
+    studentMedian = medianArray[middle];
+  }
+  else if(sizeof(medianArray) % 2 == 0)
+  {
+    int n1;
+    int n2;
+    n1 = medianArray[count/2];
+    n2 = medianArray[count/2] + 1;
+    studentMedian = (double(n1) + double(n2))/2;
+  }
 
   for(int i = 0; i < waitTimes.size(); ++i)
   {

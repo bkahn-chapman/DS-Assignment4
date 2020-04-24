@@ -17,6 +17,7 @@ int main(int argc, char **argv)
     os.start();
   }
   os.simulate();
+  os.outputResults();
   exit(0);
   return 0;
 }
