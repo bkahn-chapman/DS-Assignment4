@@ -9,6 +9,14 @@ int main(int argc, char **argv)
     os.setFileName(name);
     os.start();
   }
+  else
+  {
+    cout << "Please enter a file name." << endl;
+    cin >> name;
+    os.setFileName(name);
+    os.start();
+  }
+  os.simulate();
   exit(0);
   return 0;
 }

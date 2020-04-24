@@ -39,10 +39,24 @@ void OfficeSim::start()
       nextStr += c;
     }
   }
-  cout << fileValues.size() << endl;
-  int thing = fileValues.size();
-  for(int i = 0; i < thing; i++)
+}
+
+void OfficeSim::simulate()
+{
+  //find the number of windows
+  numWindows = fileValues.removeFront();
+
+  //finds the first time to insert students
+  nextTime = fileValues.removeFront();
+
+  //make a list of the number of windows (can you do this CAM)
+  for(int i = 0; i < numWindows; ++i)
   {
-    cout << fileValues.removeFront() << endl;
+    windows.insert(i);
+  }
+
+  while(!exitCheck)
+  {
+    //do all the checks here
   }
 }
